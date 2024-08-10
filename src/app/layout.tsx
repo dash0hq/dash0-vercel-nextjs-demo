@@ -32,10 +32,15 @@ export default function RootLayout({
             <nav className="grid gap-2 text-sm text-muted-foreground" x-chunk="dashboard-04-chunk-0">
               <NavLink pathname="/" label="General" />
 
-              <NavGroup>Server Components</NavGroup>
-              <NavLink pathname="/rsc-fetch-success" label="Fetch: Successful" />
-              <NavLink pathname="/rsc-fetch-4xx" label="Fetch: 4XX" />
-              <NavLink pathname="/rsc-fetch-failure" label="Fetch: Failure" />
+              <NavGroup>Server Components (Node.js)</NavGroup>
+              <NavLink pathname="/rsc-nodejs-fetch-2xx" label="Fetch: 2XX" />
+              <NavLink pathname="/rsc-nodejs-fetch-4xx" label="Fetch: 4XX" />
+              <NavLink pathname="/rsc-nodejs-fetch-failure" label="Fetch: Failure" />
+
+              <NavGroup>Server Components (Edge)</NavGroup>
+              <NavLink pathname="/rsc-edge-fetch-2xx" label="Fetch: 2XX" />
+              <NavLink pathname="/rsc-edge-fetch-4xx" label="Fetch: 4XX" />
+              <NavLink pathname="/rsc-edge-fetch-failure" label="Fetch: Failure" />
             </nav>
             <main>{children}</main>
           </div>
