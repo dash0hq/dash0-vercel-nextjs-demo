@@ -34,6 +34,7 @@ export default function RootLayout({
 
               <NavGroup>Server Components</NavGroup>
               <NavLink pathname="/rsc-fetch-success" label="Fetch: Successful" />
+              <NavLink pathname="/rsc-fetch-4xx" label="Fetch: 4XX" />
               <NavLink pathname="/rsc-fetch-failure" label="Fetch: Failure" />
             </nav>
             <main>{children}</main>

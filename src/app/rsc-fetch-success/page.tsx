@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ReloadButton } from "@/components/ui/reload-button";
 import { FetchResponseInsights } from "@/components/ui/fetch-response-insights";
@@ -8,7 +10,7 @@ export default async function RSCFetchSuccess() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>RSC: Fetch</CardTitle>
+        <CardTitle>Server Component Fetch: 2XX</CardTitle>
         <CardDescription>
           To render this page, a fetch request was made to <code>example.com</code>.
         </CardDescription>

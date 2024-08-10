@@ -1,29 +1,25 @@
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ReloadButton } from "@/components/ui/reload-button";
 import { FetchResponseInsights } from "@/components/ui/fetch-response-insights";
 
-export default async function RSCFetchFailure() {
-  let errorMessage = "";
-  try {
-    await fetch("https://this-does-not-exist.example.com", {
-      method: "DELETE",
-    });
-  } catch (e) {
-    errorMessage = String(e);
-  }
+export default async function RSCFetch4XX() {
+  const resp = await fetch("https://example.com", {
+    method: "DELETE",
+  });
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Failing Server Component Fetch</CardTitle>
+        <CardTitle>Server Component Fetch: 4XX</CardTitle>
         <CardDescription>
-          This server component issues a fetch request to a non-existent domain, which should result in a network error.
+          Within the server component, a fetch request was made to <code>example.com</code> that is expected to result
+          in a 4XX response status code.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <FetchResponseInsights errorMessage={errorMessage} />
+        <FetchResponseInsights status={resp.status} statusText={resp.statusText} />
       </CardContent>
       <CardFooter className="border-t px-6 py-4">
         <ReloadButton />
