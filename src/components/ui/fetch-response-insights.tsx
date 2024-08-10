@@ -21,8 +21,8 @@ function KeyValue({ title, value }: { title: string; value?: string }) {
   }
   return (
     <div className="mb-2 border-b pb-2 last:mb-0 last:border-b-0 last:pb-0">
-      <dt className="font-medium text-muted-foreground">{title}</dt>
-      <dd>{value}</dd>
+      <dt className="text-sm font-medium text-muted-foreground">{title}</dt>
+      <dd className="font-mono">{value}</dd>
     </div>
   );
 }
