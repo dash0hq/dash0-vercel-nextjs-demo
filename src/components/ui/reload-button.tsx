@@ -3,5 +3,5 @@
 import { Button } from "@/components/ui/button";
 
 export function ReloadButton() {
-	  return <Button onClick={() => window.location.reload()}>Reload</Button>;
+  return <Button onClick={() => window.location.reload()}>Reload</Button>;
 }

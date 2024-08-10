@@ -2,11 +2,13 @@ type FetchResponseInsightsProps = {
   status?: number;
   statusText?: string;
   errorMessage?: string;
+  traceId?: string;
 };
 
-export function FetchResponseInsights({ status, statusText, errorMessage }: FetchResponseInsightsProps) {
+export function FetchResponseInsights({ status, statusText, errorMessage, traceId }: FetchResponseInsightsProps) {
   return (
     <>
+      <KeyValue title="Trace ID" value={traceId} />
       <KeyValue title="HTTP Status" value={`${status || ""}${statusText ? `: ${statusText}` : ""}`} />
       <KeyValue title="Error Message" value={errorMessage} />
     </>

@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { FetchResponseInsights } from "@/components/ui/fetch-response-insights";
 import { ReloadButton } from "@/components/ui/reload-button";
 import { ReactNode } from "react";
+import { context, trace } from "@opentelemetry/api";
 
 type ServerSideFetchResultPageProps = {
   title: string;
@@ -11,6 +12,7 @@ type ServerSideFetchResultPageProps = {
 };
 
 export async function ServerSideFetchResultPage({ title, description, url, method }: ServerSideFetchResultPageProps) {
+  const traceId = trace.getSpan(context.active())?.spanContext().traceId;
   let errorMessage = "";
   let response: Response | null = null;
 
@@ -30,6 +32,7 @@ export async function ServerSideFetchResultPage({ title, description, url, metho
       </CardHeader>
       <CardContent>
         <FetchResponseInsights
+          traceId={traceId}
           status={response?.status}
           statusText={response?.statusText}
           errorMessage={errorMessage}
