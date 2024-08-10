@@ -29,9 +29,12 @@ export default function RootLayout({
             <h1 className="text-3xl font-semibold">Dash0: Vercel &amp; Next.js example</h1>
           </div>
           <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-            <nav className="grid gap-4 text-sm text-muted-foreground" x-chunk="dashboard-04-chunk-0">
+            <nav className="grid gap-2 text-sm text-muted-foreground" x-chunk="dashboard-04-chunk-0">
               <NavLink pathname="/" label="General" />
-              <NavLink pathname="/rsc-fetch" label="RSC: Fetch" />
+
+              <NavGroup>Server Components</NavGroup>
+              <NavLink pathname="/rsc-fetch-success" label="Fetch: Successful" />
+              <NavLink pathname="/rsc-fetch-failure" label="Fetch: Failure" />
             </nav>
             <main>{children}</main>
           </div>
@@ -39,4 +42,8 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+function NavGroup({ children }: { children: React.ReactNode }) {
+  return <div className="mt-3 text-base font-semibold text-primary">{children}</div>;
 }

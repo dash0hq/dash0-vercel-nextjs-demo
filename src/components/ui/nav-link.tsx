@@ -14,7 +14,7 @@ export function NavLink({ label, pathname }: NavLinkProps) {
   return (
     <Link
       href={pathname}
-      className={cn({
+      className={cn("hover:underline", {
         "font-semibold text-primary": activePathname === pathname,
       })}
     >
