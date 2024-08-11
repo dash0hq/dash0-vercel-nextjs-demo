@@ -3,12 +3,20 @@ type FetchResponseInsightsProps = {
   statusText?: string;
   errorMessage?: string;
   traceId?: string;
+  middlewareTraceId?: string;
 };
 
-export function FetchResponseInsights({ status, statusText, errorMessage, traceId }: FetchResponseInsightsProps) {
+export function FetchResponseInsights({
+  status,
+  statusText,
+  errorMessage,
+  traceId,
+  middlewareTraceId,
+}: FetchResponseInsightsProps) {
   return (
     <>
       <KeyValue title="Trace ID" value={traceId} />
+      {traceId !== middlewareTraceId && <KeyValue title="Middleware Trace ID" value={middlewareTraceId} />}
       <KeyValue title="HTTP Status" value={`${status || ""}${statusText ? `: ${statusText}` : ""}`} />
       <KeyValue title="Error Message" value={errorMessage} />
     </>
